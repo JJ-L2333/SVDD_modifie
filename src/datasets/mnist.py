@@ -45,13 +45,13 @@ class MNIST_Dataset(TorchvisionDataset):
         print("Train Set")
         print(type(self.train_set))
         print(len(self.train_set))
-        print(dir(self.train_set))
+        print(self.train_set.dataset)
 
 
         self.test_set = MyMNIST(root=self.root, train=False, download=True,
                                 transform=transform, target_transform=target_transform)
         print("Test Set")
-        print(dir(self.test_set))
+        print(len(self.test_set))
 
 class MyMNIST(MNIST):
     """Torchvision MNIST class with patch of __getitem__ method to also return the index of a data sample."""
