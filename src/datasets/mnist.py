@@ -45,8 +45,8 @@ class MNIST_Dataset(TorchvisionDataset):
         print("Train Set")
         print(type(self.train_set))
         print(len(self.train_set))
-        print(self.train_set.dataset)
-
+        print(dir(self.train_set.dataset))
+        print(self.train_set.dataset[0])
 
         self.test_set = MyMNIST(root=self.root, train=False, download=True,
                                 transform=transform, target_transform=target_transform)
