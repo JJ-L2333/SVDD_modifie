@@ -34,9 +34,7 @@ class CIFAR10_Dataset(TorchvisionDataset):
                                         transforms.Lambda(lambda x: global_contrast_normalization(x, scale='l1')),
                                         transforms.Normalize([min_max[normal_class][0]] * 3,
                                                              [min_max[normal_class][1] - min_max[normal_class][0]] * 3)])
-        print(transform)
-        print(type(transform))
-        print(transform)
+
 
         target_transform = transforms.Lambda(lambda x: int(x in self.outlier_classes))
 
@@ -67,6 +65,10 @@ class MyCIFAR10(CIFAR10):
             img, target = self.train_data[index], self.train_labels[index]
         else:
             img, target = self.test_data[index], self.test_labels[index]
+
+        print('image')
+        print(img)
+        print(type(target))
 
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
