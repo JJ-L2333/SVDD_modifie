@@ -78,7 +78,7 @@ class MyMNIST(MNIST):
         else:
             img, target = self.test_data[index], self.test_labels[index]
         print('image')
-        print(img.shape)
+        print(img)
         print(target)
 
         # doing this so that it is consistent with all other datasets
