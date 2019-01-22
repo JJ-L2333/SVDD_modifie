@@ -67,7 +67,7 @@ class MyCIFAR10(CIFAR10):
             img, target = self.test_data[index], self.test_labels[index]
 
         print('image')
-        print(img)
+        print(img.shape)
         print(type(target))
 
         # doing this so that it is consistent with all other datasets
