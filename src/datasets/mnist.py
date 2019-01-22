@@ -78,8 +78,8 @@ class MyMNIST(MNIST):
         else:
             img, target = self.test_data[index], self.test_labels[index]
         print('image')
-        print(img)
-        print(target)
+        print(type(img))
+        print(type(target))
 
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
