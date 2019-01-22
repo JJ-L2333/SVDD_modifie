@@ -34,6 +34,7 @@ class CIFAR10_Dataset(TorchvisionDataset):
                                         transforms.Lambda(lambda x: global_contrast_normalization(x, scale='l1')),
                                         transforms.Normalize([min_max[normal_class][0]] * 3,
                                                              [min_max[normal_class][1] - min_max[normal_class][0]] * 3)])
+        print(transform)
         print(type(transform))
         print(transform)
 
