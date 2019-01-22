@@ -43,14 +43,16 @@ class MNIST_Dataset(TorchvisionDataset):
 
         train_set = MyMNIST(root=self.root, train=True, download=True,
                             transform=transform, target_transform=target_transform)
+        print('train_set')
+        print(train_set)
         # Subset train_set to normal class
         train_idx_normal = get_target_label_idx(train_set.train_labels.clone().data.cpu().numpy(), self.normal_classes)
         self.train_set = Subset(train_set, train_idx_normal)
-        print("Train Set")
-        print(type(self.train_set))
-        print(len(self.train_set))
-        print(dir(self.train_set.dataset))
-        print(self.train_set.dataset.train_labels)
+        # print("Train Set")
+        # print(type(self.train_set))
+        # print(len(self.train_set))
+        # print(dir(self.train_set.dataset))
+        # print(self.train_set.dataset.train_labels)
 
         self.test_set = MyMNIST(root=self.root, train=False, download=True,
                                 transform=transform, target_transform=target_transform)
