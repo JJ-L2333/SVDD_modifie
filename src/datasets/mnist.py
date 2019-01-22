@@ -35,6 +35,10 @@ class MNIST_Dataset(TorchvisionDataset):
                                         transforms.Normalize([min_max[normal_class][0]],
                                                              [min_max[normal_class][1] - min_max[normal_class][0]])])
 
+        print(transform)
+        print(type(transform))
+        print(transform)
+
         target_transform = transforms.Lambda(lambda x: int(x in self.outlier_classes))
 
         train_set = MyMNIST(root=self.root, train=True, download=True,
