@@ -65,6 +65,7 @@ class MyCIFAR10(CIFAR10):
         self.list_abnormal = []
         for i in a.keys():
             self.list_abnormal.append(i)
+        self.count = 0
 
 
     def __getitem__(self, index):
@@ -79,11 +80,12 @@ class MyCIFAR10(CIFAR10):
         else:
             img, target = self.test_data[index], self.test_labels[index]
 
-        print('size of train')
-        print(len(self.list_normal))
-        print('size of test')
-        print(len(self.list_abnormal))
-
+        # print('size of train')
+        # print(self.list_normal)
+        # print('size of test')
+        # print(self.list_abnormal)
+        self.count += 1
+        print(self.count)
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
         img = Image.fromarray(img)
