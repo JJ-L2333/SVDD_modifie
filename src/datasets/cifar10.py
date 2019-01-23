@@ -66,9 +66,10 @@ class MyCIFAR10(CIFAR10):
         else:
             img, target = self.test_data[index], self.test_labels[index]
 
-        print('image')
-        print(img.shape)
-        print(type(target))
+        print('size of train')
+        print(len(self.train_data))
+        print('size of test')
+        print(len(self.test_data))
 
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
