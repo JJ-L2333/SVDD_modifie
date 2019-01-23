@@ -5,7 +5,7 @@ from base.torchvision_dataset import TorchvisionDataset
 from .preprocessing import get_target_label_idx, global_contrast_normalization
 import os
 import torchvision.transforms as transforms
-
+import pickle
 
 class CIFAR10_Dataset(TorchvisionDataset):
 
@@ -54,10 +54,14 @@ class MyCIFAR10(CIFAR10):
     def __init__(self, *args, **kwargs):
         super(MyCIFAR10, self).__init__(*args, **kwargs)
         self.list_normal = []
-        for i in os.listdir('datasets/resize_N'):
+        with open('datasets/resize_N.pickle', 'rb') as handle:
+            n = pickle.load(handle)
+        with open('datasets/resize_A.pickle', 'rb') as handle:
+            a = pickle.load(handle)
+        for i in n.keys():
             self.list_normal.append(i)
         self.list_abnormal = []
-        for i in os.listdir('datasets/resize_A'):
+        for i in a.keys():
             self.list_abnormal.append(i)
 
 
