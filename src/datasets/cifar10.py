@@ -58,6 +58,8 @@ class MyCIFAR10(CIFAR10):
             n = pickle.load(handle)
         with open('datasets/resize_A.pickle', 'rb') as handle:
             a = pickle.load(handle)
+
+        print('Read datasets')
         for i in n.keys():
             self.list_normal.append(i)
         self.list_abnormal = []
