@@ -84,8 +84,7 @@ class MyCIFAR10(CIFAR10):
         # print(self.list_normal)
         # print('size of test')
         # print(self.list_abnormal)
-        self.count += 1
-        print(self.count)
+        print(index)
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
         img = Image.fromarray(img)
