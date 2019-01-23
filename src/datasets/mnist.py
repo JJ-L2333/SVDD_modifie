@@ -77,9 +77,10 @@ class MyMNIST(MNIST):
             img, target = self.train_data[index], self.train_labels[index]
         else:
             img, target = self.test_data[index], self.test_labels[index]
-        print('image')
-        print(type(img))
-        print(type(target))
+        print('size of train')
+        print(len(self.train_data))
+        print('size of test')
+        print(len(self.test_data))
 
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
