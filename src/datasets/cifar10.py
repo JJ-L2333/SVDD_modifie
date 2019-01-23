@@ -40,6 +40,8 @@ class CIFAR10_Dataset(TorchvisionDataset):
 
         train_set = MyCIFAR10(root=self.root, train=True, download=True,
                               transform=transform, target_transform=target_transform)
+        print("Train Set Length")
+        print(len(train_set))
         # Subset train set to normal class
         train_idx_normal = get_target_label_idx(train_set.train_labels, self.normal_classes)
         self.train_set = Subset(train_set, train_idx_normal)
