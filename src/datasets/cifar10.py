@@ -3,7 +3,7 @@ from PIL import Image
 from torchvision.datasets import CIFAR10
 from base.torchvision_dataset import TorchvisionDataset
 from .preprocessing import get_target_label_idx, global_contrast_normalization
-
+import os
 import torchvision.transforms as transforms
 
 
@@ -53,6 +53,13 @@ class MyCIFAR10(CIFAR10):
 
     def __init__(self, *args, **kwargs):
         super(MyCIFAR10, self).__init__(*args, **kwargs)
+        self.list_normal = []
+        for i in os.listdir('datasets/resize_N'):
+            self.list_normal.append(i)
+        self.list_abnormal = []
+        for i in os.listdir('datasets/resize_A'):
+            self.list_abnormal.append(i)
+
 
     def __getitem__(self, index):
         """Override the original method of the CIFAR10 class.
@@ -67,9 +74,9 @@ class MyCIFAR10(CIFAR10):
             img, target = self.test_data[index], self.test_labels[index]
 
         print('size of train')
-        print(len(self.train_data))
+        print(len(self.list_normal))
         print('size of test')
-        print(len(self.test_data))
+        print(len(self.list_abnormal))
 
         # doing this so that it is consistent with all other datasets
         # to return a PIL Image
